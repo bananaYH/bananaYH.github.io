@@ -1163,7 +1163,11 @@ server {
 </div>
 
 <script src="/libs/valine/av-min.js"></script>
-<script src="https://unpkg.com/valine/dist/Valine.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/xvaline@latest/dist/Valine.min.js"></script>
+
+import Valine from 'xvaline';
+const Valine = require('xvaline');
+
 <script type="text/javascript">
     //var GUEST = ['nick', 'mail', 'link'];
     //var meta = '';
@@ -1188,7 +1192,10 @@ server {
         meta: ['nick','mail','link'],
         requiredFields: ['nick','mail'],
         recordIP: true,
-        enableQQ: true
+        enableQQ: true,
+        banKeywords: "default",
+        requireReview: true,
+        placeholder: "评论在后台人工审核后可见~"
     });
 </script>
 
