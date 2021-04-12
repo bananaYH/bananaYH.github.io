@@ -646,20 +646,15 @@
 
 <script src="/libs/valine/av-min.js"></script>
 <script src="https://unpkg.com/valine/dist/Valine.min.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/xvaline@latest/dist/Valine.min.js"></script>
 <script type="text/javascript">
-    var GUEST = ['nick', 'mail', 'link'];
-    var meta = '';
-    meta = meta.split(',').filter(function(item) {
-        return GUEST.indexOf(item) > -1;
-    });
+    //var GUEST = ['nick', 'mail', 'link'];
+    //var meta = '';
+    //meta = meta.split(',').filter(function(item) {
+        //return GUEST.indexOf(item) > -1;
+    //});
 
-    var requiredFields = '';
-    requiredFields  = requiredFields.split(',');
-
-    import Valine from 'xvaline';
-    const Valine = require('xvaline');
+    //var requiredFields = '';
+    //requiredFields  = requiredFields.split(',');
 
     new Valine({
         el: '#vcomments',
@@ -675,10 +670,7 @@
         meta: ['nick','mail','link'],
         requiredFields: ['nick','mail'],
         recordIP: true,
-        enableQQ: true,
-        banKeywords: "default",
-        requireReview: true,
-        placeholder: "评论在后台人工审核后可见~"
+        enableQQ: true
     });
 </script>
 
