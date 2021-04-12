@@ -646,10 +646,6 @@
 
 <script src="/libs/valine/av-min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/xvaline@latest/dist/Valine.min.js"></script>
-
-import Valine from 'xvaline';
-const Valine = require('xvaline');
-
 <script type="text/javascript">
     //var GUEST = ['nick', 'mail', 'link'];
     //var meta = '';
@@ -659,6 +655,8 @@ const Valine = require('xvaline');
 
     //var requiredFields = '';
     //requiredFields  = requiredFields.split(',');
+    import Valine from 'xvaline';
+    const Valine = require('xvaline');
 
     new Valine({
         el: '#vcomments',
