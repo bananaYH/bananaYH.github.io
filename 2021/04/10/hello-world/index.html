@@ -989,7 +989,7 @@
     var requiredFields = '';
     requiredFields  = requiredFields.split(',');
 
-    // Use import
+    //Use import
     import Valine from 'xvaline';
 
     new Valine({
@@ -1007,11 +1007,11 @@
         requiredFields: ['nick','mail'],
         recordIP: true,
         enableQQ: true,
-        // 默认开启，加载默认关键词配置
+        //默认开启，加载默认关键词配置
         banKeywords: "default",
-        // 设置为需要人工审核
+        //设置为需要人工审核
         requireReview: true,
-        // 推荐加上友情提示语，防止访客发完评价后看不见提bug……
+        //推荐加上友情提示语，防止访客发完评价后看不见提bug……
         placeholder: "评论在后台人工审核后可见~"
     });
 </script>
