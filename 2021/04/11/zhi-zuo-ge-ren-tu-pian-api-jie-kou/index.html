@@ -1059,12 +1059,12 @@ echo $img<span class="token punctuation">;</span>
 <script src="https://unpkg.com/valine/dist/Valine.min.js"></script>
 <script type="text/javascript">
     var GUEST = ['nick', 'mail', 'link'];
-    var meta = 'nick,mail,link';
+    var meta = '';
     meta = meta.split(',').filter(function(item) {
         return GUEST.indexOf(item) > -1;
     });
 
-    var requiredFields = 'nick';
+    var requiredFields = '';
     requiredFields  = requiredFields.split(',');
 
     new Valine({
@@ -1079,9 +1079,9 @@ echo $img<span class="token punctuation">;</span>
         lang: 'zh-cn',
         placeholder: 'just go go',
         meta: ['nick','mail','link'],
-        requiredFields: ['nick'],
-        enableQQ: true,
-        recordIP: true
+        requiredFields: ['nick','mail'],
+        recordIP: true,
+        enableQQ: true
     });
 </script>
 
