@@ -1058,14 +1058,14 @@ echo $img<span class="token punctuation">;</span>
 <script src="/libs/valine/av-min.js"></script>
 <script src="/libs/valine/Valine.min.js"></script>
 <script type="text/javascript">
-    //var GUEST = ['nick', 'mail', 'link'];
-    //var meta = '';
-    //meta = meta.split(',').filter(function(item) {
+    var GUEST = ['nick', 'mail', 'link'];
+    var meta = '';
+    meta = meta.split(',').filter(function(item) {
         //return GUEST.indexOf(item) > -1;
-    //});
+    });
 
-    //var requiredFields = '';
-    //requiredFields  = requiredFields.split(',');
+    var requiredFields = '';
+    requiredFields  = requiredFields.split(',');
 
     new Valine({
         el: '#vcomments',
@@ -1078,9 +1078,9 @@ echo $img<span class="token punctuation">;</span>
         pageSize: '10',
         lang: 'zh-cn',
         placeholder: 'just go go',
+        recordIP: true,
         meta: ['nick','mail','link'],
         requiredFields: ['nick','mail'],
-        recordIP: true,
         enableQQ: true
     });
 </script>
