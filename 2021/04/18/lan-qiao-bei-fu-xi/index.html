@@ -564,6 +564,7 @@
 <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token comment">//将String转换为小写，返回String值</span>
 <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">toCharArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>	   <span class="token comment">//将String转换为char数组，返回char[]数组</span>
 <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>             <span class="token comment">//去除String前后空白，返回String值</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="使用toCharArray-增强for遍历String字符串"><a href="#使用toCharArray-增强for遍历String字符串" class="headerlink" title="使用toCharArray()+增强for遍历String字符串"></a>使用toCharArray()+增强for遍历String字符串</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> s1 <span class="token operator">=</span> <span class="token string">"12345"</span><span class="token punctuation">;</span>
 <span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> s2 <span class="token operator">=</span> s1<span class="token punctuation">.</span><span class="token function">toCharArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">char</span> a<span class="token operator">:</span>s2<span class="token punctuation">)</span><span class="token punctuation">{</span>
@@ -573,9 +574,9 @@
 <h2 id="竞赛常用类"><a href="#竞赛常用类" class="headerlink" title="竞赛常用类"></a>竞赛常用类</h2><h3 id="大数类"><a href="#大数类" class="headerlink" title="大数类"></a>大数类</h3><h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><ul>
 <li>大数类位于java.math.*包中，其理论上可以储存无限位的大数</li>
 <li>大数类分为整数(BigInteger)和浮点数(BigDecimal)</li>
-<li>整数和浮点数不能混合运算<h4 id="BigInteger和BigDecimal的使用"><a href="#BigInteger和BigDecimal的使用" class="headerlink" title="BigInteger和BigDecimal的使用"></a>BigInteger和BigDecimal的使用</h4><h5 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h5></li>
+<li>整数和浮点数不能混合运算</li>
 </ul>
-<ol>
+<h4 id="BigInteger和BigDecimal的使用"><a href="#BigInteger和BigDecimal的使用" class="headerlink" title="BigInteger和BigDecimal的使用"></a>BigInteger和BigDecimal的使用</h4><h5 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h5><ol>
 <li>直接声明<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">BigInteger</span> num1<span class="token punctuation">;</span>
 <span class="token class-name">BigDecimal</span> num2<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
 <li>构造函数初始化<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">BigInteger</span> num1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BigInteger</span><span class="token punctuation">(</span><span class="token string">"12654655874"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
