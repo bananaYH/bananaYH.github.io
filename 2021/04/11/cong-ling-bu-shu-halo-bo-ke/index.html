@@ -566,18 +566,18 @@
 <li>创建并进入工作目录<pre class="line-numbers language-none"><code class="language-none">mkdir ~/.halo || cd ~/.halo<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>下载示例配置文件到工作目录<pre class="line-numbers language-none"><code class="language-none">wget https://dl.halo.run/config/application-template.yaml -O ./application.yaml<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>根据需要编辑配置文件，配置数据库或者端口等<pre class="line-numbers language-none"><code class="language-none">vim application.yaml<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-使用mysql==本地数据库==的配置图<br><img src="https://img-blog.csdnimg.cn/20210212231836265.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzQ2NDAwOTcw,size_16,color_FFFFFF,t_70" alt="application.yaml配置图"><blockquote>
+使用mysql<strong>本地数据库</strong>的配置图<br><img src="https://img-blog.csdnimg.cn/20210212231836265.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzQ2NDAwOTcw,size_16,color_FFFFFF,t_70" alt="application.yaml配置图"><blockquote>
 <ul>
 <li>默认是使用的H2数据库</li>
 <li>使用mysql数据库则将H2配置打上注释，将mysql配置注释放开</li>
 <li>修改username和password为mysql的账号和密码，密码在宝塔数据库界面可查看</li>
-<li>==若在容器中使用数据库，则需要将127.0.0.1换成数据库的容器名，端口为容器内部端口 例：将127.0.0.1:3306换成blog_mysql:3306==</li>
+<li><strong>若在容器中使用数据库，则需要将127.0.0.1换成数据库的容器名，端口为容器内部端口 例：将127.0.0.1:3306换成blog_mysql:3306</strong></li>
 <li>以下根据个人需求配置：<br>port为halo博客运行的端口<br>admin-path为后台管理的根路径<br>cache是设置缓存数据的保存方式<br>compression设置是否开启压缩，用Nginx等反向代理服务器时通常会默认开启</li>
 </ul>
 </blockquote>
 </li>
 </ul>
-<p><strong>==下面根据个人 选择一种进行配置==</strong></p>
+<p><strong>下面根据个人 选择一种进行配置</strong></p>
 <h3 id="①直接使用本地数据库"><a href="#①直接使用本地数据库" class="headerlink" title="①直接使用本地数据库"></a>①直接使用本地数据库</h3><ul>
 <li><p>进入msyql</p>
 <pre class="line-numbers language-none"><code class="language-none">mysql -u root -p<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
@@ -607,7 +607,7 @@
 </blockquote>
 </li>
 </ul>
-<p><strong>- -net=bridge</strong> 这个是默认值，连接到默认的网桥。<br>==<strong>- -net=host</strong> 容器使用本地主机的网络，它拥有完全的本地主机接口访问权限==<br><strong>- -net=container:NAME_or_ID 让 Docker</strong> 使用其他容器的网路，共享IP和PORT等网络资源，两者进程可以直接通过 lo 环回接口通信<br><strong>- -net=none</strong> 容器使用自己的网络，但是不进行网络配置，之后用户可以自行配置</p>
+<p><strong>- -net=bridge</strong> 这个是默认值，连接到默认的网桥。<br><strong>- -net=host</strong> 容器使用本地主机的网络，它拥有完全的本地主机接口访问权限<br><strong>- -net=container:NAME_or_ID 让 Docker</strong> 使用其他容器的网路，共享IP和PORT等网络资源，两者进程可以直接通过 lo 环回接口通信<br><strong>- -net=none</strong> 容器使用自己的网络，但是不进行网络配置，之后用户可以自行配置</p>
 <blockquote>
 <ul>
 <li><strong>-p</strong>， 容器内部端口绑定到指定的主机端口，主机端口：容器端口</li>
@@ -647,7 +647,7 @@ create database halodb character set utf8mb4 collate utf8mb4_bin;<span aria-hidd
 <li><strong>-t</strong>， 分配一个伪tty，一般与 -i 连用</li>
 <li><strong>-d</strong>，在后台运行容器，并且打印容器id   </li>
 <li><strong>- -name</strong>，容器名</li>
-<li>==<strong>- -link</strong>，指定容器间的关联==</li>
+<li><strong>- -link</strong>，指定容器间的关联</li>
 <li><strong>-p</strong>， 容器内部端口绑定到指定的主机端口，主机端口：容器端口</li>
 <li><strong>-v</strong>，  挂载目录，这里是将主机的目录~/.halo挂载到容器的目录/root/.halo上</li>
 <li><strong>- -restart=always</strong>，当docker重启时，容器自动启动</li>
@@ -661,8 +661,8 @@ flush privileges;      刷新权限<span aria-hidden="true" class="line-numbers-
 <blockquote>
 <p>*. * 为 数据库.表 ，root为用户，%代表所有主机  ，password处填写用户密码</p>
 </blockquote>
-<h2 id="以下为注意事项！！！"><a href="#以下为注意事项！！！" class="headerlink" title="==以下为注意事项！！！=="></a>==以下为注意事项！！！==</h2><p><strong>==创建并启动halo容器后，会有20s左右的初始化建表时间，初始化后在数据库halodb当中能看见自动创建的表，若没有表，请检查问题==</strong><br>Halo工作目录的绝对路径为 ~/.halo，这个工作目录是固定的，Halo容器运行后里面通常包含下列目录或文件：<br>db：存放 H2 Database 的物理文件，如果您使用 MySQL 数据库，那么不会存在这个目录<br>templates/themes：里面包含用户所下载的主题<br>static：相当于网站的根目录<br>logs：运行日志目录<br>application.yaml：配置文件</p>
-<p><strong>==放行端口80 443 8090！！！==</strong><br><strong>==云服务器防火墙和宝塔的防火墙两边都要放行！！！==</strong></p>
+<h2 id="以下为注意事项！！！"><a href="#以下为注意事项！！！" class="headerlink" title="以下为注意事项！！！"></a><strong>以下为注意事项！！！</strong></h2><p><strong>创建并启动halo容器后，会有20s左右的初始化建表时间，初始化后在数据库halodb当中能看见自动创建的表，若没有表，请检查问题</strong><br>Halo工作目录的绝对路径为 ~/.halo，这个工作目录是固定的，Halo容器运行后里面通常包含下列目录或文件：<br>db：存放 H2 Database 的物理文件，如果您使用 MySQL 数据库，那么不会存在这个目录<br>templates/themes：里面包含用户所下载的主题<br>static：相当于网站的根目录<br>logs：运行日志目录<br>application.yaml：配置文件</p>
+<p><strong>放行端口80 443 8090！！！</strong><br><strong>云服务器防火墙和宝塔的防火墙两边都要放行！！！</strong></p>
 <p><strong>到这里我们就可以以<a href="http://ip:8090的方式访问halo安装程序了">http://ip:8090的方式访问halo安装程序了</a></strong><br>可以先配置好域名访问和SSL再进行安装</p>
 <h2 id="配置域名访问、SSL，使用-Nginx-进行反向代理"><a href="#配置域名访问、SSL，使用-Nginx-进行反向代理" class="headerlink" title="配置域名访问、SSL，使用 Nginx 进行反向代理"></a>配置域名访问、SSL，使用 Nginx 进行反向代理</h2><ul>
 <li>安装 Nginx<br>之前安装LNMP时已安装</li>
