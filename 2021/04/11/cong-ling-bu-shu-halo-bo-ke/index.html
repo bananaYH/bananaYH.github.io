@@ -603,9 +603,10 @@
 <li><strong>-d</strong>，在后台运行容器，并且打印容器id</li>
 <li><strong>–name</strong>，容器名</li>
 <li><strong>–net</strong>，指定容器的网络配置</li>
-</ul>
-<p><strong>–net=bridge</strong> 这个是默认值，连接到默认的网桥。<br><strong>–net=host</strong> 容器使用本地主机的网络，它拥有完全的本地主机接口访问权限<br><strong>–net=container:NAME_or_ID 让 Docker</strong> 使用其他容器的网路，共享IP和PORT等网络资源，两者进程可以直接通过 lo 环回接口通信<br><strong>–net=none</strong> 容器使用自己的网络，但是不进行网络配置，之后用户可以自行配置</p>
-<ul>
+<li><strong>–net=bridge</strong> 这个是默认值，连接到默认的网桥。</li>
+<li><strong>–net=host</strong> 容器使用本地主机的网络，它拥有完全的本地主机接口访问权限</li>
+<li><strong>–net=container:NAME_or_ID</strong> 让Docker使用其他容器的网路，共享IP和PORT等网络资源，两者进程可以直接通过 lo 环回接口通信</li>
+<li><strong>–net=none</strong> 容器使用自己的网络，但是不进行网络配置，之后用户可以自行配置</li>
 <li><strong>-p</strong>， 容器内部端口绑定到指定的主机端口，主机端口：容器端口</li>
 <li><strong>-v</strong>，  挂载目录，这里是将主机的目录~/.halo挂载到容器的目录/root/.halo上</li>
 <li><strong>–restart=always</strong>，当docker重启时，容器自动启动</li>
