@@ -542,15 +542,13 @@
 <h2 id="二、项目实训内容"><a href="#二、项目实训内容" class="headerlink" title="二、项目实训内容"></a>二、项目实训内容</h2><h3 id="任务1配置各虚拟机的网络参数和NAT服务-实现内部4个子网和外网的互连互通"><a href="#任务1配置各虚拟机的网络参数和NAT服务-实现内部4个子网和外网的互连互通" class="headerlink" title="任务1配置各虚拟机的网络参数和NAT服务,实现内部4个子网和外网的互连互通"></a>任务1配置各虚拟机的网络参数和NAT服务,实现内部4个子网和外网的互连互通</h3><p>为虚拟机①和虚拟机③添加所需数量的网卡,并根据表15-5的规划将各网卡连接至相应的虚拟交换机,配置所有虚拟机上各网卡的IP地址等网络参数。</p>
 <p>在虚拟机①和虚拟机③上分别编辑各自的/usr/lib/sysctl.d/00-system.conf文件,以开启IP转发功能。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># vim /usr/lib/sysctl.d/00-system.conf 修改其配置文件</span>
-
-在配置文件中添加 net.ipv4.ip_forward <span class="token operator">=</span> <span class="token number">1</span> 开启IP转发功能<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+在配置文件中添加 net.ipv4.ip_forward <span class="token operator">=</span> <span class="token number">1</span> 开启IP转发功能<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># sysctl -p /usr/lib/sysctl.d/00-system.conf  使配置文件立即生效</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>(3) 在虚拟机①上添加永久生效的静态路由,使得子网2、子网3和子网4中的客户机的数据包能到达外网。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># Vim /etc/sysconfig/network-scripts/route-“网卡设备名”</span>
-
-<span class="token number">10.1</span>.80.0/24 via <span class="token number">192.168</span>.1.3 dev eth0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<span class="token number">10.1</span>.80.0/24 via <span class="token number">192.168</span>.1.3 dev eth0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>(4)将虚拟机②、虚拟机④和虚拟机⑥的默认网关均设置为192.168.1.3,并在三台虚拟机上分别添加永久生效的静态路由,使其数据包能到达子网2、子网3和子网4中的客户机。</p>
 <p>编辑 /etc/sysconfig/network-scripts/route-[网卡名] 文件，如果没有则根据网卡名自己创建</p>
@@ -566,20 +564,16 @@
 
 <p>(5)在虚拟机①上关闭所有防火墙。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># systemctl stop firewalld.service   关闭防火墙</span>
-
-<span class="token comment"># systemctl disable firewalld.service 关闭防火墙自启 </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<span class="token comment"># systemctl disable firewalld.service 关闭防火墙自启 </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># vim /etc/selinux/config            进入配置文件将SELinux关闭</span>
-
-将SELINUX<span class="token operator">=</span>enforcing 改为SELINUX<span class="token operator">=</span>disabled  关闭selinux<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+将SELINUX<span class="token operator">=</span>enforcing 改为SELINUX<span class="token operator">=</span>disabled  关闭selinux<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>(6) 在虚拟机③上配置SNAT策略,使校园网内的所有计算机能访问外部的互联网。</p>
 <p>划分区域：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># firewall-cmd --permanent --zone=external --change-interface=ens37 将ens37划为外部网络（ipv4网络地址伪装转发）</span>
-
 <span class="token comment"># firewall-cmd --permanent --zone=internal --change-interface=ens33  将ens33划为内部网络</span>
-
-<span class="token comment"># firewall-cmd --zone=internal --add-masquerade --permanent	设置特定区域的SNAT——IP伪装</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token comment"># firewall-cmd --zone=internal --add-masquerade --permanent	设置特定区域的SNAT——IP伪装</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>如果不开启伪装IP，端口转发会失败（外网区域默认开启）；</p>
