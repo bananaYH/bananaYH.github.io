@@ -1962,6 +1962,7 @@ footer .copy-right {
 .caption {
     text-align: center;
     margin: 0 auto 15px auto;
+    display: none;
 }
 
 .center-caption {
