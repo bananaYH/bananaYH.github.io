@@ -513,7 +513,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-05-30
+                    2021-06-16
                 </div>
                 
 
@@ -682,7 +682,7 @@ local-data: "ftp.dyzx.edu. 3600 IN A 192.168.1.4"
 
  
 
-local-data-ptr: "192.168.1.4 [www.dyzx.edu."](http://www.dyzx.edu.\)   反向解析
+local-data-ptr: "192.168.1.4 www.dyzx.edu."   反向解析
 
 local-data-ptr: "192.168.1.4 ftp.dyzx.edu."<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
@@ -745,7 +745,7 @@ forward-zone:       //定义转发forward
 <p>(3)编辑httpd.conf配置文件,设置站点的侦听端口、IP地址、域名等信息。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># vim /etc/httpd/conf/httpd.conf			修改配置文件</span>
 
-ServerName <span class="token punctuation">[</span>www.dyzx.edu:80<span class="token punctuation">]</span><span class="token punctuation">(</span>http://www.dyzx.edu:80<span class="token punctuation">)</span>    配置域名及端口号
+ServerName www.dyzx.edu:80     配置域名及端口号
 
 DocumentRoot <span class="token string">"/var/www/myweb"</span>  配置站点根目录<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
